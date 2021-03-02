@@ -29,7 +29,8 @@ public class UserTests extends BaseTest{
                 .post(resourcePath + "/register")
                 .then()
                 .body("message", equalTo("Successfully registered"))
-                .statusCode(200);
+                .statusCode(200)
+                .spec(headerSpec);
     }
 
     @Test
@@ -40,7 +41,8 @@ public class UserTests extends BaseTest{
                 .post(resourcePath + "/login")
                 .then()
                 .body("message", equalTo("User signed in"))
-                .statusCode(200);
+                .statusCode(200)
+                .spec(headerSpec);
     }
 
 }
