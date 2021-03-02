@@ -13,9 +13,8 @@ public class UserTests extends BaseTest{
         User user = new User("Kevin", "kevintest@test.com","kevin" );
 
         baseRequest.body(user)
-                .post(String.format("%s%s/register",baseUrl,resourcePath))
+                .post(resourcePath + "/register")
         .then()
-                .header("Content-Length", equalTo("57"))
                 .body("message", equalTo("User already exists"))
                 .statusCode(406);
     }
@@ -27,7 +26,7 @@ public class UserTests extends BaseTest{
         System.out.println("Test email" + user.getEmail());
 
         baseRequest.body(user)
-                .post(String.format("%s%s/register",baseUrl,resourcePath))
+                .post(resourcePath + "/register")
                 .then()
                 .body("message", equalTo("Successfully registered"))
                 .statusCode(200);
@@ -38,7 +37,7 @@ public class UserTests extends BaseTest{
         User user = new User("Kevin", "kevintest@test.com","kevin" );
 
         baseRequest.body(user)
-                .post(String.format("%s%s/login",baseUrl,resourcePath))
+                .post(resourcePath + "/login")
                 .then()
                 .body("message", equalTo("User signed in"))
                 .statusCode(200);

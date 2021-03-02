@@ -10,7 +10,7 @@ public class MiscTests extends BaseTest {
     @Test
     public void Test_PING_ENDPOINT(){
         baseRequest
-                .get(String.format("%s%s/ping",baseUrl,resourcePath))
+                .get(String.format(resourcePath + "/ping"))
         .then()
                 .header("Content-Length", equalTo("50"))
                 .body("response", equalTo("pong"))
@@ -18,9 +18,9 @@ public class MiscTests extends BaseTest {
     }
 
     @Test
-    public void Test_Home_Page(){
+    public void Test_HomePage_Response(){
         baseRequest
-                .get(String.format("%s",baseUrl))
+                .get("/")
         .then()
                 .body(containsString("Gin Boilerplate"))
         .statusCode(200);
