@@ -17,4 +17,10 @@
         </classes>
     </test>
 
+    <test name="ArticleTests">
+        <classes>
+            <class name="ArticleTests"></class>
+        </classes>
+    </test>
+
 </suite>
