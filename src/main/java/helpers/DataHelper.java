@@ -1,11 +1,21 @@
 package helpers;
 
+import model.User;
+
 import java.util.Random;
 
 public class DataHelper {
 
     public static String generateRandomEmail(){
         return String.format("%s@testemail.com" , generateRandomString(7));
+    }
+
+    public static String generateRandomTitle(){
+        return String.format("%s" , generateRandomString(7));
+    }
+
+    public static String generateRandomContent(){
+        return String.format("%s" , generateRandomString(100));
     }
 
     private static String generateRandomString(int targetStringLength){
@@ -21,5 +31,9 @@ public class DataHelper {
         String generatedString = buffer.toString();
 
         return generatedString;
+    }
+
+    public static User getTestUser(){
+        return new User("", "Shakira.Witting@gmail.com", "kevin");
     }
 }
