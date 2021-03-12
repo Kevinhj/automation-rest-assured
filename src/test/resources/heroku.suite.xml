@@ -3,7 +3,7 @@
 <suite name="LocalExecution" thread-count="2" parallel="tests">
 
     <parameter name="baseUrl" value="https://api-coffee-testing.herokuapp.com"></parameter>
-
+<!--
     <test name="UserTests">
         <classes>
             <class name="UserTests"></class>
@@ -22,10 +22,16 @@
             <class name="ArticleTests"></class>
         </classes>
     </test>
-
+-->
     <test name="PostTests">
         <classes>
             <class name="PostTests"></class>
+        </classes>
+    </test>
+
+    <test name="CommentTest">
+        <classes>
+            <class name="CommentTests"></class>
         </classes>
     </test>
 

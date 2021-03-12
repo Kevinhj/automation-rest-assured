@@ -12,22 +12,8 @@ import static io.restassured.RestAssured.given;
 import static org.hamcrest.Matchers.equalTo;
 
 public class PostTests extends BaseTest{
+
     private static String resourcePath = "/v1/post";
-    private static Integer postId = 0;
-
-    @BeforeGroups("create_post")
-    public void createArticle(){
-
-        Post testPost = new Post(DataHelper.generateRandomTitle(), DataHelper.generateRandomContent());
-
-        Response response = given()
-                .spec(RequestSpecs.generateToken())
-                .body(testPost)
-                .post(resourcePath);
-
-        JsonPath jsonPathEvaluator = response.jsonPath();
-        postId = jsonPathEvaluator.get("id");
-    }
 
     @Test
     public void Test_Create_Post_Success(){
