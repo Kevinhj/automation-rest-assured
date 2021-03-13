@@ -48,8 +48,8 @@ public class BaseTest {
 
         Response response = given()
                 .spec(RequestSpecs.basicToken())
-                .body(testComment + "/" + postId)
-                .post(commentResourcePath);
+                .body(testComment)
+                .post(commentResourcePath + "/" + postId);
 
         JsonPath jsonPathEvaluator = response.jsonPath();
         commentId = jsonPathEvaluator.get("id");
