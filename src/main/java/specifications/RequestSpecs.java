@@ -27,10 +27,18 @@ public class RequestSpecs {
         RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
         PreemptiveBasicAuthScheme authenticationScheme = new PreemptiveBasicAuthScheme();
 
-        //authenticationScheme.setUserName(user.getUsername());
-        //authenticationScheme.setPassword(user.getPassword());
         authenticationScheme.setUserName("testuser");
         authenticationScheme.setPassword("testpass");
+        requestSpecBuilder.setAuth(authenticationScheme);
+        return requestSpecBuilder.build();
+    }
+
+    public static RequestSpecification basicFakeToken(){
+        RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
+        PreemptiveBasicAuthScheme authenticationScheme = new PreemptiveBasicAuthScheme();
+
+        authenticationScheme.setUserName("nontestuser");
+        authenticationScheme.setPassword("nontestpass");
         requestSpecBuilder.setAuth(authenticationScheme);
         return requestSpecBuilder.build();
     }

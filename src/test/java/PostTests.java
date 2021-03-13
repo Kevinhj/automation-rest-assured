@@ -10,7 +10,7 @@ import static org.hamcrest.Matchers.equalTo;
 public class PostTests extends BaseTest{
 
     private static String resourcePath = "/v1/post";
-    private static int fakePostId = 0;
+    private final int fakePostId = 0;
 
     @Test
     public void Test_Create_Post_Success(){
