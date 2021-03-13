@@ -1,6 +1,7 @@
 package specifications;
 
 import helpers.RequestHelper;
+import io.restassured.authentication.PreemptiveBasicAuthScheme;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.specification.RequestSpecification;
 
@@ -22,4 +23,23 @@ public class RequestSpecs {
         return requestSpecBuilder.build();
     }
 
+    public static RequestSpecification basicToken(){
+        RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
+        PreemptiveBasicAuthScheme authenticationScheme = new PreemptiveBasicAuthScheme();
+
+        authenticationScheme.setUserName("testuser");
+        authenticationScheme.setPassword("testpass");
+        requestSpecBuilder.setAuth(authenticationScheme);
+        return requestSpecBuilder.build();
+    }
+
+    public static RequestSpecification basicFakeToken(){
+        RequestSpecBuilder requestSpecBuilder = new RequestSpecBuilder();
+        PreemptiveBasicAuthScheme authenticationScheme = new PreemptiveBasicAuthScheme();
+
+        authenticationScheme.setUserName("nontestuser");
+        authenticationScheme.setPassword("nontestpass");
+        requestSpecBuilder.setAuth(authenticationScheme);
+        return requestSpecBuilder.build();
+    }
 }
